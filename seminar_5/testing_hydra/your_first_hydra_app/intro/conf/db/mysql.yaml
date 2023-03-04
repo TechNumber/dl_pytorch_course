@@ -1,0 +1,4 @@
+driver: mysql
+pass: 12345test
+timeout: 15
+user: mysql_user
