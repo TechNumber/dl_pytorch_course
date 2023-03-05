@@ -1,7 +1,0 @@
-defaults:
-  - db: mysql
-  - ui: full
-  - schema: school
-
-hydra:
-  mode: MULTIRUN
