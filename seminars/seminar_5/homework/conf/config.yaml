@@ -1,0 +1,16 @@
+# @package _global_
+defaults:
+  - base_config
+  - _self_
+
+trainer:
+  max_epochs: 20
+dataset:
+  img_size: 160
+  batch_size: 128
+model:
+  depth: 3
+  num_heads: 8
+  drop_rate: 0.3
+  attn_drop: 0.3
+  drop_path: 0.3
