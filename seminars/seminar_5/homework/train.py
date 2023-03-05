@@ -14,26 +14,25 @@ from conf.config_dataclass import Config
 
 
 def train(cfg: Config):
-    SEED = 17
-
-    IMG_SIZE = 160
-    NUM_CLASSES = 47
-    EMBED_DIM = 768
-    DEPTH = 2
-    N_HEADS = 8
-    DROP_RATE = 0.3
-    QKV_BIAS = False
-
-    LR = 1e-4
-    MAX_LR = 5e-4
-    EPOCHS = 200
-    BATCH_SIZE = 10
+    # SEED = 17
+    #
+    # IMG_SIZE = 160
+    # NUM_CLASSES = 47
+    # EMBED_DIM = 768
+    # DEPTH = 2
+    # N_HEADS = 8
+    # DROP_RATE = 0.3
+    # QKV_BIAS = False
+    #
+    # LR = 1e-4
+    # MAX_LR = 5e-4
+    # EPOCHS = 200
+    # BATCH_SIZE = 10
 
     seed_everything(cfg.seed, workers=True)
 
     dataset = instantiate(cfg.dataset)
     model = instantiate(cfg.model)
-    # model = LitClassifier(vit, num_classes=NUM_CLASSES, lr=LR, max_lr=MAX_LR)
     module = instantiate(cfg.module, model)
     logger = instantiate(cfg.logger)
     checkpoint_callback = ModelCheckpoint(dirpath="./checkpoints/", save_top_k=2, monitor='val/acc', mode='max')
